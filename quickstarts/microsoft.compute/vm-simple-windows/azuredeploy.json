@@ -31,7 +31,7 @@
     },
     "publicIpName": {
       "type": "string",
-      "defaultValue": "myPublicIP",
+      "defaultValue": "cicispubdev",
       "metadata": {
         "description": "Name for the Public IP used to access the Virtual Machine."
       }
@@ -60,7 +60,7 @@
     },
     "OSVersion": {
       "type": "string",
-      "defaultValue": "2022-datacenter-azure-edition",
+      "defaultValue": "2019-datacenter-azure-edition",
       "allowedValues": [
         "2016-datacenter-gensecond",
         "2016-datacenter-server-core-g2",
@@ -92,7 +92,7 @@
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_D2s_v5",
+      "defaultValue": "Standard_D2s_v3",
       "metadata": {
         "description": "Size of the virtual machine."
       }
@@ -106,7 +106,7 @@
     },
     "vmName": {
       "type": "string",
-      "defaultValue": "simple-vm",
+      "defaultValue": "cicisdevvm",
       "metadata": {
         "description": "Name of the virtual machine."
       }
@@ -125,12 +125,12 @@
   },
   "variables": {
     "storageAccountName": "[format('bootdiags{0}', uniqueString(resourceGroup().id))]",
-    "nicName": "myVMNic",
+    "nicName": "cicisdevvm",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
-    "virtualNetworkName": "MyVNET",
-    "networkSecurityGroupName": "default-NSG",
+    "virtualNetworkName": "cicisdevvnet",
+    "networkSecurityGroupName": "cicisdevvm-NSG",
     "securityProfileJson": {
       "uefiSettings": {
         "secureBootEnabled": true,
@@ -178,7 +178,7 @@
       "properties": {
         "securityRules": [
           {
-            "name": "default-allow-3389",
+            "name": "cicishq",
             "properties": {
               "priority": 1000,
               "access": "Allow",
